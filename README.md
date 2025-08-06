@@ -13,7 +13,7 @@ helm uninstall opensearch -n opensearch
 
 k get all -n opensearch
 # For accessing nodeport 
-kubectl patch svc opensearch -n opensearch -p '{"spec": {"type": "NodePort"}}'
+kubectl patch svc opensearch-cluster-master -n opensearch -p '{"spec": {"type": "NodePort", "ports": [{"port": 9200,"targetPort": 9200,"protocol": "TCP","nodePort": 31000}]}}'
 kubectl get svc -n opensearch
 ```
 
