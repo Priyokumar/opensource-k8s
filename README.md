@@ -17,6 +17,12 @@ kubectl patch svc opensearch-cluster-master -n opensearch -p '{"spec": {"type": 
 kubectl get svc -n opensearch
 ```
 
+```
+Dashboard:
+
+helm install opensearch-dashboards opensearch/opensearch-dashboards -f dashboard-values.yaml -n opensearch
+```
+
 ### Label agent node
 ```
  kubectl label node alpha label=opensearch
